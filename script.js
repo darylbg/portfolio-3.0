@@ -23,6 +23,7 @@ $(document).ready(function () {
     if (mobileMenuTriggerIconEl.text() === "menu") {
       mobileNavbarMenuEl.animate({
         left: "0",
+        right: "0",
         duration: 300,
         easing: "swing",
       });
