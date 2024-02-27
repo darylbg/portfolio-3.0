@@ -7,6 +7,7 @@ $(document).ready(function () {
   var freelanceEl = $("#freelance");
   var nonTechnicalEl = $("#non-technical");
   var workFieldHeaderEl = $(".work-field-header");
+  var workField = $(".work-field");
 
   // console.log(workFieldEl);
 
@@ -46,33 +47,23 @@ $(document).ready(function () {
 
   // initially set technical work field open
   var elWidth = workFieldHeaderEl.width();
-  technicalEl.css({
-    flex: "1",
-    width: "auto",
-  });
   freelanceEl.css({
-    flex: "0",
     width: elWidth,
   });
   nonTechnicalEl.css({
-    flex: "0",
     width: elWidth,
   });
 
   //  set selected work field to
-  workFieldHeaderEl.click(function() {
+  workFieldHeaderEl.click(function () {
     const dataIndex = $(this).parent().attr("data-index");
     [technicalEl, freelanceEl, nonTechnicalEl].forEach((el) => {
       if (el.attr("data-index") == dataIndex) {
-        el.css({
-          flex: "1",
-          width: "auto"
-        });
+        el.addClass("work-expanded").removeClass("work-collapsed");
       } else {
-        el.css({
-          flex: "0",
-          width: elWidth
-        });
+        el.css("width", elWidth)
+          .addClass("work-collapsed")
+          .removeClass("work-expanded");
       }
     });
   });

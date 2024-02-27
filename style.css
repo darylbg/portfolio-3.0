@@ -624,19 +624,17 @@ body {
   outline: 1px solid var(--white-darker);
 }
 
-#technical {
-  flex: 1;
-}
-
-.work-field-expanded {
+.work-expanded {
   flex: 1;
   width: auto;
   background-color: red;
+  transition: flex 0.7s, width 0.7s ease;
 }
 
-.work-field-shrunk {
+.work-collapsed {
   flex: 0;
   background-color: pink;
+  transition: flex 0.7s, width 0.7s ease;
 }
 
 .work-field-header {
