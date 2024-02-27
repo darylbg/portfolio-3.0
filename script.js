@@ -3,19 +3,25 @@ $(document).ready(function () {
   var mobileMenuTriggerIconEl = $("#m-menu-trigger-icon");
   var mobileNavbarMenuEl = $("#m-navbar-menu");
   var navbarEl = $(".navbar");
+  var technicalEl = $("#technical");
+  var freelanceEl = $("#freelance");
+  var nonTechnicalEl = $("#non-technical");
+  var workFieldHeaderEl = $(".work-field-header");
+
+  // console.log(workFieldEl);
 
   // set navbar hide on scroll down, appear on scroll up
   var prevScrollPosition = 0;
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     var lastScrollPosition = $(window).scrollTop();
     if (lastScrollPosition > prevScrollPosition) {
-        prevScrollPosition = lastScrollPosition; 
-        navbarEl.css("top", "-100%");
+      prevScrollPosition = lastScrollPosition;
+      navbarEl.css("top", "-100%");
     } else if (lastScrollPosition < prevScrollPosition) {
-        prevScrollPosition = lastScrollPosition; 
-        navbarEl.css("top", "0");
+      prevScrollPosition = lastScrollPosition;
+      navbarEl.css("top", "0");
     }
-    console.log(prevScrollPosition)
+    console.log(prevScrollPosition);
   });
 
   // mobile navbar
@@ -36,5 +42,38 @@ $(document).ready(function () {
       });
       mobileMenuTriggerIconEl.text("menu");
     }
+  });
+
+  // initially set technical work field open
+  var elWidth = workFieldHeaderEl.width();
+  technicalEl.css({
+    flex: "1",
+    width: "auto",
+  });
+  freelanceEl.css({
+    flex: "0",
+    width: elWidth,
+  });
+  nonTechnicalEl.css({
+    flex: "0",
+    width: elWidth,
+  });
+
+  //  set selected work field to
+  workFieldHeaderEl.click(function() {
+    const dataIndex = $(this).parent().attr("data-index");
+    [technicalEl, freelanceEl, nonTechnicalEl].forEach((el) => {
+      if (el.attr("data-index") == dataIndex) {
+        el.css({
+          flex: "1",
+          width: "auto"
+        });
+      } else {
+        el.css({
+          flex: "0",
+          width: elWidth
+        });
+      }
+    });
   });
 });
