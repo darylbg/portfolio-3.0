@@ -7,7 +7,6 @@ $(document).ready(function () {
   var freelanceEl = $("#freelance");
   var nonTechnicalEl = $("#non-technical");
   var workFieldHeaderEl = $(".work-field-header");
-  var workField = $(".work-field");
 
   // console.log(workFieldEl);
 

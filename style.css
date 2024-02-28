@@ -290,7 +290,7 @@ body {
 .section-header {
   flex: 0 0 auto;
   display: flex;
-  padding-right: 30px;
+  /* padding-right: 30px; */
 }
 
 .section-header p {
@@ -347,6 +347,10 @@ body {
   text-transform: capitalize;
 }
 
+.projects-header .section-header {
+  padding-right: 30px;
+}
+
 /* projects */
 
 .projects {
@@ -381,7 +385,9 @@ body {
 
 .featured-project-links .view-links .view-code-link,
 .featured-project-links .view-links .view-live-link {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .featured-project-image {
@@ -610,30 +616,32 @@ body {
 
 .work-header .section-header {
   justify-content: flex-end;
+  padding-bottom: 10px;
 }
 
 .work-fields {
   display: flex;
   flex-direction: row;
   width: 100%;
+  /* overflow: hidden; */
 }
 
 .work-field {
   display: flex;
   flex-direction: row;
-  outline: 1px solid var(--white-darker);
+  border: 1px solid var(--white-darker);
+  /* overflow: hidden; */
+  box-sizing: border-box;
 }
 
 .work-expanded {
   flex: 1;
   width: auto;
-  background-color: red;
   transition: flex 0.7s, width 0.7s ease;
 }
 
 .work-collapsed {
   flex: 0;
-  background-color: pink;
   transition: flex 0.7s, width 0.7s ease;
 }
 
@@ -641,12 +649,26 @@ body {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  justify-content: flex-end;
 }
 
-.work-field-header span {
+.work-field-header .text {
   writing-mode: vertical-rl;
   transform: scale(-1);
   color: var(--white);
+  font-family: var(--inter);
+  font-size: 5cqw;
+  font-weight: 600;
+  margin: 0;
+  padding: 5px;
+}
+
+.work-field-header .text span {
+  color: var(--accent);
+}
+
+.work-field-content {
+  overflow: hidden;
 }
 
 /* MEDIA QUERIES */
@@ -821,6 +843,15 @@ body {
   .work-fields {
     display: flex;
     flex-direction: column;
+  }
+
+  .work-field {
+    flex-direction: column;
+  }
+
+  .work-field-header span {
+    writing-mode: horizontal-tb;
+    transform: none;
   }
 
   .hide-on-sm {
