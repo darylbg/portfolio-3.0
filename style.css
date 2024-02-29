@@ -637,12 +637,12 @@ body {
 .work-expanded {
   flex: 1;
   width: auto;
-  transition: flex 0.7s, width 0.7s ease;
+  /* transition: flex 0.7s, width 0.7s ease; */
 }
 
 .work-collapsed {
   flex: 0;
-  transition: flex 0.7s, width 0.7s ease;
+  /* transition: flex 0.7s, width 0.7s ease; */
 }
 
 .work-field-header {
@@ -849,9 +849,13 @@ body {
     flex-direction: column;
   }
 
-  .work-field-header span {
+  .work-field-header .text {
     writing-mode: horizontal-tb;
     transform: none;
+  }
+
+  .work-collapsed .work-field-content {
+    height: 0;
   }
 
   .hide-on-sm {

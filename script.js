@@ -45,25 +45,57 @@ $(document).ready(function () {
   });
 
   // initially set technical work field open
-  var elWidth = workFieldHeaderEl.width();
-  freelanceEl.css({
-    width: elWidth,
-  });
-  nonTechnicalEl.css({
-    width: elWidth,
-  });
+  var windowWidth;
+  var elWidth;
+  var elHeight;
+  var selectedField;
 
-  //  set selected work field to
-  workFieldHeaderEl.click(function () {
-    const dataIndex = $(this).parent().attr("data-index");
+  function workOnLoad() {
+    windowWidth = window.innerWidth;
+    elWidth = workFieldHeaderEl.width();
+    elHeight = workFieldHeaderEl.height();
+    selectedField = 0;
+
+    selectedFieldToggle(selectedField);
+  }
+  workOnLoad();
+
+  // Function to toggle selected work field
+  function selectedFieldToggle(newSelectedField) {
+    selectedField = newSelectedField;
     [technicalEl, freelanceEl, nonTechnicalEl].forEach((el) => {
-      if (el.attr("data-index") == dataIndex) {
-        el.addClass("work-expanded").removeClass("work-collapsed");
+      if (el.attr("data-index") == selectedField) {
+        el.addClass("work-expanded").removeClass("work-collapsed").css({
+          width: "auto",
+          height: "auto",
+        });
       } else {
-        el.css("width", elWidth)
-          .addClass("work-collapsed")
-          .removeClass("work-expanded");
+        el.addClass("work-collapsed")
+          .removeClass("work-expanded")
+          .css(
+            windowWidth > 768
+              ? {
+                  width: elWidth,
+                  height: "auto",
+                }
+              : { width: "auto", 
+                  height: elHeight 
+                }
+          );
       }
     });
+  }
+
+  window.addEventListener("resize", function() {
+    windowWidth = window.innerWidth;
+    elWidth = workFieldHeaderEl.width();
+    elHeight = workFieldHeaderEl.height();
+    selectedFieldToggle(selectedField);
+  });
+
+  // Event listener for work field header clicks
+  workFieldHeaderEl.click(function () {
+    var clickedIndex = $(this).parent().attr("data-index");
+    selectedFieldToggle(clickedIndex);
   });
 });
