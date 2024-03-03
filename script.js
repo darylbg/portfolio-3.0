@@ -21,7 +21,7 @@ $(document).ready(function () {
       prevScrollPosition = lastScrollPosition;
       navbarEl.css("top", "0");
     }
-    console.log(prevScrollPosition);
+    // console.log(prevScrollPosition);
   });
 
   // mobile navbar
@@ -68,6 +68,7 @@ $(document).ready(function () {
         el.addClass("work-expanded").removeClass("work-collapsed").css({
           width: "auto",
           height: "auto",
+          maxWidth: "1000px",
         });
       } else {
         el.addClass("work-collapsed")
@@ -75,18 +76,16 @@ $(document).ready(function () {
           .css(
             windowWidth > 768
               ? {
-                  width: elWidth,
+                  width: elWidth + "px",
                   height: "auto",
                 }
-              : { width: "auto", 
-                  height: elHeight 
-                }
+              : { width: "auto", height: elHeight + "px" }
           );
       }
     });
   }
 
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     windowWidth = window.innerWidth;
     elWidth = workFieldHeaderEl.width();
     elHeight = workFieldHeaderEl.height();
@@ -98,4 +97,23 @@ $(document).ready(function () {
     var clickedIndex = $(this).parent().attr("data-index");
     selectedFieldToggle(clickedIndex);
   });
+
+  // education expand / collapse
+  var levelTriggerEl = $(".level-trigger");
+
+  levelTriggerEl.click(function () {
+    var educationLevelEl = $(this).parent().parent();
+    var toggleState = $(this).find("span");
+    var toggleStateText = toggleState.text();
+
+    if (toggleStateText === "remove") {
+      educationLevelEl.addClass("level-collapse").removeClass("level-expand");
+      toggleState.text("add");
+    } else if (toggleStateText === "add") {
+      console.log("expand");
+      educationLevelEl.addClass("level-expand").removeClass("level-collapse");
+      toggleState.text("remove");
+    }
+  });
+  
 });
