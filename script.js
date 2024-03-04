@@ -46,17 +46,27 @@ $(document).ready(function () {
   });
 
   // education expand / collapse
-$(".level-header").click(function() {
-  var selectedLevelEl = $(this).parent();
-  var selectedLevelIconEl = $(this).find(".material-symbols-outlined");
+  $(".level-header").click(function () {
+    var selectedLevelEl = $(this).parent();
+    var selectedLevelIconEl = $(this).find(".material-symbols-outlined");
 
-  if (selectedLevelEl.hasClass("level-expand")) {
-    selectedLevelEl.removeClass("level-expand").addClass("level-collapse");
-    selectedLevelIconEl.text("add");
-  } else if (selectedLevelEl.hasClass("level-collapse")) {
-    selectedLevelEl.removeClass("level-collapse").addClass("level-expand");
-    selectedLevelIconEl.text("remove");
-  }
-});
-  
+    if (selectedLevelEl.hasClass("level-expand")) {
+      selectedLevelEl.removeClass("level-expand").addClass("level-collapse");
+      selectedLevelIconEl.text("add");
+    } else if (selectedLevelEl.hasClass("level-collapse")) {
+      selectedLevelEl.removeClass("level-collapse").addClass("level-expand");
+      selectedLevelIconEl.text("remove");
+    }
+  });
+
+  // footer history toggle
+  var triggerState = false;
+  $(".history-trigger").click(function () {
+    if (!triggerState) {
+      $(".history").css("display", "flex");
+    } else {
+      $(".history").css("display", "none");
+    }
+    triggerState = !triggerState;
+  });
 });

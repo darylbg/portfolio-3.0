@@ -614,7 +614,7 @@ body {
   transform: scale(-1);
   color: var(--white);
   font-family: var(--inter);
-  font-size: 5cqw;
+  font-size: 50px;
   font-weight: 600;
   margin: 0;
   padding: 5px;
@@ -630,6 +630,10 @@ body {
 }
 
 /* education */
+
+.education .section-header {
+  padding-bottom: 10px;
+}
 
 .education-levels {
   display: flex;
@@ -658,6 +662,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .level-header .title {
@@ -721,36 +726,80 @@ body {
   text-decoration: underline;
 }
 
-.footer .history {
+.footer .history-trigger {
   position: absolute;
   right: 0;
   bottom: 0;
 }
 
-.footer .history img {
+.footer .history-trigger:hover {
+  cursor: pointer;
+}
+
+.footer .history-trigger img {
   width: 100px;
+  z-index: 99;
+  animation: MoveUpDown 1.5s linear infinite;
+}
+
+.footer .history-trigger::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  border-radius: 50%;
+  width: 100%;
+  height: 5px;
+  background-color: #ffffff;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    padding-bottom: 0px;
+  }
+  50% {
+    padding-bottom: 10px;
+  }
+}
+
+.history {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 115px;
+  flex-direction: column;
+}
+
+.history-header span {
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .history-items {
   display: flex;
   flex-direction: row;
-  background-color: red;
-  position: absolute;
-  bottom: 0;
-  right: 100px;
-  padding: 15px;
+  padding: 15px 0;
   gap: 15px;
-  display: none;
+}
+
+.history-items .item {
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
 }
 
 .history-items .item img {
-  width: 200px;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
+  width: 280px;
+  border-radius: 5px;
+  border: 2px solid grey;
+  box-sizing: border-box;
+  box-shadow: rgba(255, 255, 255, 0.2) 0 0 90px 15px;
 }
 
-.footer .history:hover + .history-items,
-.history-items:hover {
-  display: flex;
+.history-items .item img:hover {
+  border: 2px solid var(--accent);
 }
 
 /* MEDIA QUERIES */
@@ -793,6 +842,10 @@ body {
     display: flex;
     flex-direction: row;
     gap: 80px;
+  }
+
+  .history-items .item img {
+    width: 320px;
   }
 }
 
@@ -920,6 +973,7 @@ body {
   .work-field-header .text {
     writing-mode: horizontal-tb;
     transform: none;
+    font-size: 5cqw;
   }
 
   .work-expanded .work-field-content {
@@ -934,6 +988,14 @@ body {
 
   .contact-content {
     flex-direction: column;
+  }
+
+  .history-items {
+    flex-direction: column;
+  }
+
+  .history-items .item img {
+    width: 50vw;
   }
 
   .hide-on-sm {
