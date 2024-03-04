@@ -3,14 +3,7 @@ $(document).ready(function () {
   var mobileMenuTriggerIconEl = $("#m-menu-trigger-icon");
   var mobileNavbarMenuEl = $("#m-navbar-menu");
   var navbarEl = $(".navbar");
-  var technicalEl = $("#technical");
-  var freelanceEl = $("#freelance");
-  var nonTechnicalEl = $("#non-technical");
-  var workFieldHeaderEl = $(".work-field-header");
 
-  // console.log(workFieldEl);
-
-  // set navbar hide on scroll down, appear on scroll up
   var prevScrollPosition = 0;
   $(window).scroll(function () {
     var lastScrollPosition = $(window).scrollTop();
@@ -24,7 +17,6 @@ $(document).ready(function () {
     // console.log(prevScrollPosition);
   });
 
-  // mobile navbar
   mobileMenuTriggerEl.click(function () {
     if (mobileMenuTriggerIconEl.text() === "menu") {
       mobileNavbarMenuEl.animate({
@@ -44,58 +36,12 @@ $(document).ready(function () {
     }
   });
 
-  // initially set technical work field open
-  var windowWidth;
-  var elWidth;
-  var elHeight;
-  var selectedField;
+  $(".work-field-header").click(function () {
+    $(".work-field-header").parent().removeClass("work-expanded");
+    $(".work-field-header").parent().addClass("work-collapsed");
 
-  function workOnLoad() {
-    windowWidth = window.innerWidth;
-    elWidth = workFieldHeaderEl.width();
-    elHeight = workFieldHeaderEl.height();
-    selectedField = 0;
-
-    selectedFieldToggle(selectedField);
-  }
-  workOnLoad();
-
-  // Function to toggle selected work field
-  function selectedFieldToggle(newSelectedField) {
-    selectedField = newSelectedField;
-    [technicalEl, freelanceEl, nonTechnicalEl].forEach((el) => {
-      if (el.attr("data-index") == selectedField) {
-        el.addClass("work-expanded").removeClass("work-collapsed").css({
-          width: "auto",
-          height: "auto",
-          maxWidth: "1000px",
-        });
-      } else {
-        el.addClass("work-collapsed")
-          .removeClass("work-expanded")
-          .css(
-            windowWidth > 768
-              ? {
-                  width: elWidth + "px",
-                  height: "auto",
-                }
-              : { width: "auto", height: elHeight + "px" }
-          );
-      }
-    });
-  }
-
-  window.addEventListener("resize", function () {
-    windowWidth = window.innerWidth;
-    elWidth = workFieldHeaderEl.width();
-    elHeight = workFieldHeaderEl.height();
-    selectedFieldToggle(selectedField);
-  });
-
-  // Event listener for work field header clicks
-  workFieldHeaderEl.click(function () {
-    var clickedIndex = $(this).parent().attr("data-index");
-    selectedFieldToggle(clickedIndex);
+    $(this).parent().addClass("work-expanded");
+    $(this).parent().removeClass("work-collapsed");
   });
 
   // education expand / collapse
@@ -115,5 +61,4 @@ $(document).ready(function () {
       toggleState.text("remove");
     }
   });
-  
 });
