@@ -376,7 +376,7 @@ body {
 .work,
 .education,
 .contact {
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 
 .projects {
@@ -446,6 +446,7 @@ body {
   padding: 25px;
   box-sizing: border-box;
   z-index: 80;
+  background: linear-gradient(to top, rgb(218, 255, 0, 0.2), transparent);
 }
 
 .featured-project-content .project-content-header {
@@ -522,7 +523,6 @@ body {
 .project-image {
   position: relative;
   border-radius: 10px;
-  aspect-ratio: 16/9;
   flex: 1;
 }
 
@@ -664,12 +664,12 @@ body {
   flex: 1;
 }
 
-.level-header .level-trigger:hover {
+.level-header:hover {
   cursor: pointer;
   height: 100%;
 }
 
-.level-header .level-trigger span {
+.level-header .material-symbols-outlined {
   color: white;
   font-size: 25px;
   font-weight: 900;

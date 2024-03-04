@@ -36,6 +36,7 @@ $(document).ready(function () {
     }
   });
 
+  // work sections toggle
   $(".work-field-header").click(function () {
     $(".work-field-header").parent().removeClass("work-expanded");
     $(".work-field-header").parent().addClass("work-collapsed");
@@ -45,20 +46,17 @@ $(document).ready(function () {
   });
 
   // education expand / collapse
-  var levelTriggerEl = $(".level-trigger");
+$(".level-header").click(function() {
+  var selectedLevelEl = $(this).parent();
+  var selectedLevelIconEl = $(this).find(".material-symbols-outlined");
 
-  levelTriggerEl.click(function () {
-    var educationLevelEl = $(this).parent().parent();
-    var toggleState = $(this).find("span");
-    var toggleStateText = toggleState.text();
-
-    if (toggleStateText === "remove") {
-      educationLevelEl.addClass("level-collapse").removeClass("level-expand");
-      toggleState.text("add");
-    } else if (toggleStateText === "add") {
-      console.log("expand");
-      educationLevelEl.addClass("level-expand").removeClass("level-collapse");
-      toggleState.text("remove");
-    }
-  });
+  if (selectedLevelEl.hasClass("level-expand")) {
+    selectedLevelEl.removeClass("level-expand").addClass("level-collapse");
+    selectedLevelIconEl.text("add");
+  } else if (selectedLevelEl.hasClass("level-collapse")) {
+    selectedLevelEl.removeClass("level-collapse").addClass("level-expand");
+    selectedLevelIconEl.text("remove");
+  }
+});
+  
 });
