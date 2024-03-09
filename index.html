@@ -15,19 +15,19 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
-  <body>
+  <body id="body">
     <div class="navbar desktop-navbar">
       <div class="navbar-wrapper">
-        <div class="logo"><a href="">db</a></div>
+        <div class="logo"><a href="#app">db</a></div>
         <ul class="navbar-menu">
-          <li class="menu-item"><a href="">PROJECTS</a></li>
-          <li class="menu-item"><a href="">WORK</a></li>
-          <li class="menu-item"><a href="">EDUCATION</a></li>
-          <li class="menu-item"><a href="">RESUME</a></li>
+          <li class="menu-item"><a href="#projects-header">PROJECTS</a></li>
+          <li class="menu-item"><a href="#work">WORK</a></li>
+          <li class="menu-item"><a href="#education">EDUCATION</a></li>
+          <li class="menu-item"><a href="#contact">CONTACT</a></li>
         </ul>
         <div>
           <a href="" class="link-type1"
-            ><span>SAY HI</span
+            ><span>RESUME</span
             ><span class="material-symbols-rounded"> trending_flat </span>
           </a>
         </div>
@@ -36,24 +36,28 @@
     <div class="navbar mobile-navbar">
       <div class="m-navbar">
         <div class="m-navbar-logo">db</div>
-        <button id="m-menu-trigger" class="m-menu-button">
+        <button id="m-menu-trigger" class="m-menu-button link-type1">
           <span id="m-menu-trigger-icon" class="material-symbols-rounded"
             >menu</span
           >
           MENU
         </button>
       </div>
-
       <ul id="m-navbar-menu" class="m-navbar-menu">
-        <li class="menu-item"><a href="">HOME</a></li>
-        <li class="menu-item"><a href="">PROJECTS</a></li>
-        <li class="menu-item"><a href="">WORK</a></li>
-        <li class="menu-item"><a href="">EDUCATION</a></li>
-        <li class="menu-item"><a href="">CONTACT</a></li>
-        <li class="menu-item"><a href="">RESUME</a></li>
+        <li class="menu-item"><a href="#app">HOME</a></li>
+        <li class="menu-item"><a href="#projects-header">PROJECTS</a></li>
+        <li class="menu-item"><a href="#work">WORK</a></li>
+        <li class="menu-item"><a href="#education">EDUCATION</a></li>
+        <li class="menu-item"><a href="#contact">CONTACT</a></li>
+        <li class="">
+          <a href="" class="link-type1"
+            ><span>RESUME</span
+            ><span class="material-symbols-rounded"> trending_flat </span>
+          </a>
+        </li>
       </ul>
     </div>
-    <div class="app">
+    <div class="app" id="app">
       <div class="home">
         <div class="home-intro-wrapper">
           <div class="home-text">
@@ -78,7 +82,7 @@
         <div class="text">
           <p class="header-subtext scrolldown-subtext">↓ SCROLL DOWN</p>
         </div>
-        <div class="projects-header">
+        <div class="projects-header" id="projects-header">
           <div class="section-header">
             <p class="heading">PROJECTS</p>
             <span class="sm-section-header-number hide-on-md">(5)</span>
@@ -247,7 +251,7 @@
           </div>
         </div>
       </div>
-      <div class="work">
+      <div class="work" id="work">
         <div class="section-header">
           <span class="sm-section-header-number">(3)</span>
           <p class="heading">WORK</p>
@@ -273,7 +277,7 @@
           </div>
         </div>
       </div>
-      <div class="education">
+      <div class="education" id="education">
         <div class="section-header">
           <p class="heading">EDUCATION</p>
           <span class="sm-section-header-number">(2)</span>
@@ -293,7 +297,7 @@
           </div>
           <div class="education-level level-collapse">
             <div class="level-header item-header">
-              <div class="title">WEB DEVELOPEMENT BOOTCAMP</div>
+              <div class="title">HIGH SCHOOL</div>
               <span class="material-symbols-outlined">add</span>
             </div>
             <div class="level-content">
@@ -305,7 +309,7 @@
           </div>
         </div>
       </div>
-      <div class="contact">
+      <div class="contact" id="contact">
         <div class="section-header">
           <p class="heading">CONTACT ME</p>
         </div>
@@ -336,7 +340,9 @@
           <img src="./assets/images/delorean.png" alt="" />
         </div>
         <div class="history">
-          <div class="history-header text"><span>Previous portfolios</span></div>
+          <div class="history-header text">
+            <span>Previous portfolios</span>
+          </div>
           <div class="history-items">
             <a href="" class="item"
               ><img src="./assets/images/zoomtube.png" alt=""

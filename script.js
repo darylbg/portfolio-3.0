@@ -22,19 +22,32 @@ $(document).ready(function () {
       mobileNavbarMenuEl.animate({
         left: "0",
         right: "0",
-        duration: 300,
+        duration: 100,
         easing: "swing",
       });
       mobileMenuTriggerIconEl.text("close");
+      // $("#body").css("overflow", "hidden");
     } else {
       mobileNavbarMenuEl.animate({
         left: "100%",
-        duration: 300,
+        duration: 100,
         easing: "swing",
       });
       mobileMenuTriggerIconEl.text("menu");
+      // $("#body").css("overflow-y", "scroll");
     }
   });
+
+  // hide mobile menu to allow scrolling when menu-item selected
+  $("#m-navbar-menu").find("li").click(function() {
+    mobileNavbarMenuEl.css({
+      left: "100%",
+      duration: 0,
+      easing: "swing",
+    });
+    mobileMenuTriggerIconEl.text("menu");
+  });
+
 
   // work sections toggle
   $(".work-field-header").click(function () {

@@ -40,6 +40,10 @@
   --times-newer-roman: "Times Newer Roman";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   /* width: 100vw; */
   overflow-x: hidden;
@@ -93,7 +97,7 @@ body {
   background-color: var(--accent);
   display: flex;
   align-items: center;
-  padding: 0px 25px;
+  padding: 0px 20px;
   border-radius: 50px;
   text-decoration: none;
   text-decoration: none;
@@ -103,6 +107,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   gap: 10px;
+  border: none;
 }
 
 .link-type2 {
@@ -115,6 +120,11 @@ body {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+}
+
+.link-type1:hover,
+.link-type2:hover {
+  cursor: pointer;
 }
 
 .link-type1 .material-symbols-rounded,
@@ -247,32 +257,15 @@ body {
   color: var(--white);
 }
 
-.m-menu-button {
-  z-index: 80;
-  background-color: var(--accent);
-  border: none;
-  color: var(--black);
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  padding: 6px 15px;
-}
-
-.m-menu-button:hover,
-.m-menu-button:focus {
-  cursor: pointer;
-}
-
-#m-menu-trigger-icon {
-  font-size: 18px;
-  padding-right: 5px;
+.m-navbar .link-type1 {
+  z-index: 99;
 }
 
 .m-navbar-menu {
   position: absolute;
-  top: 0;
+  top: 55px;
   left: 100%;
-  height: 100svh;
+  height: calc(100svh - 55px);
   background-color: var(--black);
   margin: 0;
   padding: 50px 20px;
