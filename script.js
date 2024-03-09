@@ -26,7 +26,7 @@ $(document).ready(function () {
         easing: "swing",
       });
       mobileMenuTriggerIconEl.text("close");
-      // $("#body").css("overflow", "hidden");
+      $("#body").css("overflow", "hidden");
     } else {
       mobileNavbarMenuEl.animate({
         left: "100%",
@@ -34,7 +34,7 @@ $(document).ready(function () {
         easing: "swing",
       });
       mobileMenuTriggerIconEl.text("menu");
-      // $("#body").css("overflow-y", "scroll");
+      $("#body").css("overflow-y", "scroll");
     }
   });
 
